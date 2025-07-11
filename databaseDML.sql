@@ -22,3 +22,11 @@ create table produto(
     quantidade int not null,
     preco double precision not null
 );
+
+-- initial insert to login as admin
+insert into usuario(username, password, nome, tipo) values(
+	"admin",
+	"your_psswd",
+	"your_name",
+	"0" -- represents admin level
+)
