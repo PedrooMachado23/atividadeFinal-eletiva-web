@@ -1,3 +1,7 @@
+create database crudTS;
+
+\c crudts
+
 create table usuario(
     username varchar(30),
     password varchar(128) not null,
@@ -22,11 +26,3 @@ create table produto(
     quantidade int not null,
     preco double precision not null
 );
-
--- initial insert to login as admin
-insert into usuario(username, password, nome, tipo) values(
-	"admin",
-	"your_psswd",
-	"your_name",
-	"0" -- represents admin level
-)
