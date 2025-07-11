@@ -9,7 +9,8 @@ import { createUsuarioService } from './services/usuarioServices'
 async function createAdmin() {
   const users = await prisma.usuario.findMany()
 
-  await createUsuarioService({
+  if (users.length === 0) {
+    await createUsuarioService({
     username: 'admin',
     password: '123',
     nome: 'admin',
@@ -19,6 +20,7 @@ async function createAdmin() {
   })
 
   console.log('admin criado')
+  }
 }
 
 createAdmin()
