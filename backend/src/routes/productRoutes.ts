@@ -7,6 +7,6 @@ const produtoRouter = Router()
 produtoRouter.post('/create', authMiddleware, createProdutoController)
 produtoRouter.put('/update', authMiddleware, updateProdutoController)
 produtoRouter.get('/fetch', authMiddleware, fetchProdutoController)
-produtoRouter.delete('/delete/:id', authMiddleware, deleteProdutoController)
+produtoRouter.delete('/delete/:code', authMiddleware, deleteProdutoController)
 
 export default produtoRouter

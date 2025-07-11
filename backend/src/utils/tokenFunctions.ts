@@ -3,10 +3,10 @@ import jwt from "jsonwebtoken"
 
 dotenv.config()
 
-export function generateToken(username:string, isAdmin: string): string {
+export function generateToken(username:string, nome: string, isAdmin: string): string {
     const secretKey = process.env.JWT_PSSWD || ''
 
-    const token = jwt.sign({username: username, permission: isAdmin}, secretKey, {expiresIn: '30m'})
+    const token = jwt.sign({username: username, nome: nome, tipo: isAdmin}, secretKey, {expiresIn: '1h'})
 
     return token
 }

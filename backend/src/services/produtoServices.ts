@@ -42,10 +42,10 @@ export async function updateProdutoService(updatedData: produto): Promise<void> 
     return
 }
 
-export async function deleteProdutoService(idProduto: number): Promise<void> {
+export async function deleteProdutoService(codeProduto: string): Promise<void> {
     await prisma.produto.delete({
         where: {
-            id: idProduto
+            codigo: codeProduto
         }
     })
 

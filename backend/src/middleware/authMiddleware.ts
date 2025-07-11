@@ -17,7 +17,7 @@ export function authMiddleware(req: Request, res: Response, next: NextFunction):
     const secretKey = process.env.JWT_PSSWD || ''
 
     if (!authorization){
-        res.sendStatus(401)
+        res.sendStatus(400)
 
         return
     }
@@ -32,19 +32,10 @@ export function authMiddleware(req: Request, res: Response, next: NextFunction):
         next()
 
     } catch (error) {
-        res.sendStatus(401)
+        res.status(401).send({
+          error: error
+        })
 
         return
-    }
-}
-
-export async function isAdmin(req: Request, res: Response, next: NextFunction): Promise<void> {
-    const { permission } = req.usuario.permission
-
-    if (permission === "0") {
-        next()
-
-    } else {
-        res.sendStatus(403)
     }
 }

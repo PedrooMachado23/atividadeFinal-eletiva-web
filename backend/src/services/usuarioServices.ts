@@ -60,11 +60,3 @@ export async function blockUsuarioService(username: string): Promise<void> {
         }
     })
 }
-
-export async function deleteUsuarioService(usernameToDelete: string): Promise<void> {
-    await prisma.usuario.delete({where: {
-            username: usernameToDelete
-        }})
-
-    return
-}

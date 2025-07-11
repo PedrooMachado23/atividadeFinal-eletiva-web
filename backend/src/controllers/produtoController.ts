@@ -11,7 +11,7 @@ export async function createProdutoController(req:Request, res: Response): Promi
 
         res.status(201).send({
             message: "Produto criado!",
-            data: createdProduto
+            product: createdProduto
         })
 
     } catch (error) {
@@ -43,12 +43,12 @@ export async function updateProdutoController(req:Request, res: Response): Promi
 }
 
 export async function deleteProdutoController(req:Request, res: Response): Promise<void> {
-    const idProduto = req.params.id
+    const codeProduto = req.params.code
 
     try {
-        await deleteProdutoService(Number(idProduto))
+        await deleteProdutoService(codeProduto)
 
-        res.status(500).send({
+        res.status(200).send({
             message: "Usuario deletado com sucesso"
         })
         
@@ -67,7 +67,7 @@ export async function fetchProdutoController(req:Request, res: Response): Promis
 
         res.status(200).send({
             message: "Listagem de todos os produtos",
-            data: foundProdutos
+            products: foundProdutos
         })
 
     } catch (error) {

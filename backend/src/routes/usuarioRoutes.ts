@@ -1,13 +1,14 @@
 import { Router } from "express";
-import { blockUsuarioController, createUsuarioController, deleteUsuarioController, loginUsuarioController, updateUsarioPsswdController } from "../controllers/usuarioController";
-import { authMiddleware, isAdmin } from "../middleware/authMiddleware";
+import { blockUsuarioController, createUsuarioController, loginUsuarioController, updateUsarioPsswdController, verifyTokenUserController } from "../controllers/usuarioController";
+import { authMiddleware} from "../middleware/authMiddleware";
+import { isAdmin } from "../middleware/isAdminMiddleware";
 
 const usuarioRouter = Router()
 
 usuarioRouter.post('/create', authMiddleware, isAdmin, createUsuarioController)
 usuarioRouter.post('/auth', loginUsuarioController)
+usuarioRouter.post('/verifyToken', authMiddleware, verifyTokenUserController)
 usuarioRouter.put('/updatePsswd', authMiddleware, updateUsarioPsswdController)
 usuarioRouter.put('/block/:username', blockUsuarioController)
-usuarioRouter.delete('/delete/:username', authMiddleware, isAdmin, deleteUsuarioController)
 
 export default usuarioRouter
