@@ -1,5 +1,6 @@
 # Requisitos:
 - node: v22.17.0
+- psql (PostgreSQL) 16.3
 
 # Como rodar:
 Atingido todos os requisitos instalados na sua máquina, voce precisa:
@@ -25,6 +26,11 @@ npm install
 npx prisma init
 npx prisma db pull
 npx prisma db generate
+```
+
+- Faça o insert inicial para poder logar como admin (databaseDML.sql)
+```bash
+psql -U <seu_usuario> -f caminho\para\arquivoDML\databaseDML.sql
 ```
 
 Agora, é necessário instalar as dependências do frontend
