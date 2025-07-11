@@ -23,7 +23,6 @@ npm install
 
 - Faça o setup inicial do ORM (prisma)
 ```bash
-npx prisma init
 npx prisma db pull
 npx prisma db generate
 ```
@@ -52,5 +51,9 @@ npm run preview
 ```bash
 npm run dev
 ```
+
+Obs: Como padrão, se estiver sem usuarios cadastros, uma conta será cadastrada automaticamente:
+- usename: admin
+- senha: 123
 
 Agora basta acessar `http://localhost:4173/` no seu navegador e começar a usar a aplicação.
