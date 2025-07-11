@@ -1,5 +1,5 @@
+import { produto } from "../generated/prisma";
 import { prisma } from "../utils/prismaClient";
-import { produto } from "../../generated/prisma";
 
 async function getProdutoById(codProduto: string): Promise<produto | undefined> {
     const produto = await prisma.produto.findUnique({

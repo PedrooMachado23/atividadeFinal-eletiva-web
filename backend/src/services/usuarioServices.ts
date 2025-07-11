@@ -1,4 +1,4 @@
-import { usuario } from "../../generated/prisma";
+import { usuario } from "../generated/prisma";
 import { hashPsswd, verifyHash } from "../utils/hashFunctions";
 import { prisma } from "../utils/prismaClient";
 

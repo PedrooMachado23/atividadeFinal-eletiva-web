@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { usuario } from "../../generated/prisma";
 import { createUsuarioService, getUsuarioByUsername, blockUsuarioService, updateUsuarioPsswd } from "../services/usuarioServices";
 import { verifyHash } from "../utils/hashFunctions";
 import { generateToken, verifyToken } from "../utils/tokenFunctions";
 import { prisma } from "../utils/prismaClient";
+import { usuario } from "../generated/prisma";
 
 export async function createUsuarioController(req: Request, res: Response): Promise<void> {
     const data: usuario = req.body

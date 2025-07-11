@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { produto } from "../../generated/prisma";
 import { createProdutoService, deleteProdutoService, fetchProdutoService, updateProdutoService } from "../services/produtoServices";
+import { produto } from "../generated/prisma";
 
 
 export async function createProdutoController(req:Request, res: Response): Promise<void> {
